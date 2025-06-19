@@ -19,21 +19,25 @@
             justify-content: center;
             gap: 36px;
         }
-        button{
+        input{
             border: 2px solid black;
             border-radius: 8px;
             padding: 8px;
+            min-width: 100px;
+        }
+        .result{
+            padding: 16px;
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
     <div class="subtitle">Choose one of the button!</div>
     <div class="container">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <input type="button" value="rock"></button>
+        <input type="button" value="paper"></button>
+        <input type="button" value="scissors"></button>
     </div>
-    <div class="text-victory"></div>
-    <div class="score"></div>
+    <div class="result"></div>
 </body>
 </html>
