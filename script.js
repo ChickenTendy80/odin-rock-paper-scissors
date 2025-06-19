@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let humanChoice = "";
 
 function getComputerChoice() {
     let val = Math.round(Math.random()*10);
@@ -16,59 +17,77 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(){
-    //
+    const humanRock = document.querySelector("#rock");
+    const humanPaper = document.querySelector("#paper");
+    const humanScissors = document.querySelector("#scissors");
+
+    humanRock.addEventListener("click", () => {
+        humanChoice = "rock";
+    });
+
+    humanPaper.addEventListener("click", () => {
+        humanChoice = "paper";
+    });
+
+    humanScissors.addEventListener("click", () => {
+        humanChoice = "scissors";
+    });
 }
 
 function playRound(humanChoice, computerChoice){
-    let humanChoiceCopy = humanChoice.toLowerCase();
-
     if(humanChoice == "rock"){
         if(computerChoice == "paper"){
-            console.log("You lose! " + computerChoice + " beats " + humanChoice);
+            return("You lose! " + computerChoice + " beats " + humanChoice);
             computerScore++;
         }
         else if(computerChoice == "scissors"){
-            console.log("You win! " + humanChoice + " beats " + computerChoice);
+            return("You win! " + humanChoice + " beats " + computerChoice);
             humanScore++;
         }
         else{
-            console.log("Tied!");
+            return("Tied!");
         }
     }
     else if(humanChoice == "paper"){
         if(computerChoice == "scissors"){
-            console.log("You lose! " + computerChoice + " beats " + humanChoice);
+            return("You lose! " + computerChoice + " beats " + humanChoice);
             computerScore++;
         }
         else if(computerChoice == "rock"){
-            console.log("You win! " + humanChoice + " beats " + computerChoice);
+            return("You win! " + humanChoice + " beats " + computerChoice);
             humanScore++;
         }
         else{
-            console.log("Tied!");
+            return("Tied!");
         }
     }
     else{
         if(computerChoice == "rock"){
-            console.log("You lose! " + computerChoice + " beats " + humanChoice);
+            return("You lose! " + computerChoice + " beats " + humanChoice);
             computerScore++;
         }
         else if(computerChoice == "paper"){
-            console.log("You win! " + humanChoice + " beats " + computerChoice);
+            return("You win! " + humanChoice + " beats " + computerChoice);
             humanScore++;
         }
         else{
-            console.log("Tied!");
+            return("Tied!");
         }
     }
 }
 
 function playGame(){
     for(let i = 0; i < 5; i++){
-        const humanSelection = getHumanChoice();
+        const container = document.querySelector("container");
         const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log("Your score: " + humanScore + "\nComputer score: " + computerScore);
+        const content = document.createElement("div");
+        content.textContent = playRound(humanChoice, computerSelection);
+        const currScore = document.createElement("div");
+        currScore.textContent = "Your score: " + humanScore + "\nComputer score: " + computerScore;
+
+        container.appendChild(content);
+        container.appendChild(currScore);
+        
     }
 
     if(humanScore > computerScore){
