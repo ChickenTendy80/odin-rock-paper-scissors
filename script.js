@@ -22,7 +22,6 @@ function getHumanChoice(){
     const humanScissors = document.querySelector("#scissors");
 
     humanRock.addEventListener("click", () => {
-        alert("rock");
         return "rock";
     });
 
@@ -79,7 +78,19 @@ function playRound(humanChoice, computerChoice){
 
 
 function playGame(){
+    let humanChoice = getHumanChoice();
+    while(humanChoice == undefined){
+        humanChoice = getHumanChoice();
+    }
+    alert(humanChoice);
+    const robotChoice = getComputerChoice();
+    alert(robotChoice);
     
+    const results = document.querySelector("text-victory");
+    const scores = document.querySelector("score");
+
+    results.textContent = playRound();
+    scores.textContent = "Your score: " + humanScore + "\nRobot Score: " + computerScore;
 }
 
 playGame();
