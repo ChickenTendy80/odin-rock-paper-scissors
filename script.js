@@ -16,8 +16,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(){
-    let human = prompt("Choose between rock, paper, or scissors");
-    return human;
+    //
 }
 
 function playRound(humanChoice, computerChoice){
