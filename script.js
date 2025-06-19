@@ -22,15 +22,16 @@ function getHumanChoice(){
     const humanScissors = document.querySelector("#scissors");
 
     humanRock.addEventListener("click", () => {
-        humanChoice = "rock";
+        alert("rock");
+        return "rock";
     });
 
     humanPaper.addEventListener("click", () => {
-        humanChoice = "paper";
+        return "paper";
     });
 
     humanScissors.addEventListener("click", () => {
-        humanChoice = "scissors";
+        return "scissors";
     });
 }
 
@@ -76,27 +77,8 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
+
 function playGame(){
-    for(let i = 0; i < 5; i++){
-        const container = document.querySelector("container");
-        const computerSelection = getComputerChoice();
-        const content = document.createElement("div");
-        content.textContent = playRound(humanChoice, computerSelection);
-        const currScore = document.createElement("div");
-        currScore.textContent = "Your score: " + humanScore + "\nComputer score: " + computerScore;
-
-        container.appendChild(content);
-        container.appendChild(currScore);
-        
-    }
-
-    if(humanScore > computerScore){
-        console.log("You won!");
-    }
-    else{
-        console.log("You lost!");
-    }
-
     
 }
 
